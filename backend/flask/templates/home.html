@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Welcome..!</h1>
+    </div>
+    <div>
+        <form action="/add" method="post">
+            <label>Name: </label><input name ='name'>
+            <label>Phn No: </label> <input name ='phone'>
+            <input type="submit" value="add"> 
+        </form>
+    </div>
+    <div>
+        <div> 
+            <h1>Flask CRUD Operations </h1>
+        </div>
+        <div>
+            <table border=1>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone Numer</th>
+                    <th>Action</th>
+                </tr>
+                {%for user in users%}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>
+                        <a href="{{url_for('edit',id=user.id)}}" >Edit</a>
+                        <a href="{{url_for('delete',id=user.id)}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
