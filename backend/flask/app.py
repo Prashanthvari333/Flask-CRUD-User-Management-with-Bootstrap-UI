@@ -27,14 +27,14 @@ def index():
 def add_user():
     name = request.form['name']
     phone = request.form['phone']
-    new_user = User(name=name, phone=phone)
+    new_user = Users(name=name, phone=phone)
     db.session.add(new_user)
     db.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/update/<int:id>', methods=['POST'])
 def update_user(id):
-    user = User.query.get_or_404(id)
+    user = Users.query.get_or_404(id)
     user.name = request.form['name']
     user.phone = request.form['phone']
     db.session.commit()
