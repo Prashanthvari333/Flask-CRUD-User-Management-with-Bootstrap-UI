@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDI Tracking</title>
+</head>
+<body>
+    <h1>PDI Tracking</h1>
+    <table border="1">
+        <tr>
+            <th>Zone</th>
+            <th>Coil ID</th>
+        </tr>
+        <tr>
+            <td>SK11</td>
+            <td id="zone_SK11"></td>
+        </tr>
+        <tr>
+            <td>SK12</td>
+            <td id="zone_SK12"></td>
+        </tr>
+        <tr>
+            <td>SK21</td>
+            <td id="zone_SK21"></td>
+        </tr>
+        <tr>
+            <td>SK22</td>
+            <td id="zone_SK22"></td>
+        </tr>
+        <tr>
+            <td>POR1</td>
+            <td id="zone_POR1"></td>
+        </tr>
+        <tr>
+            <td>POR2</td>
+            <td id="zone_POR2"></td>
+        </tr>
+        <tr>
+            <td>TR1</td>
+            <td id="zone_TR1"></td>
+        </tr>
+        <tr>
+            <td>TR2</td>
+            <td id="zone_TR2"></td>
+        </tr>
+        <tr>
+            <td>XSK11</td>
+            <td id="zone_XSK11"></td>
+        </tr>
+        <tr>
+            <td>XSK12</td>
+            <td id="zone_XSK12"></td>
+        </tr>
+        <tr>
+            <td>XSK21</td>
+            <td id="zone_XSK21"></td>
+        </tr>
+        <tr>
+            <td>XSK22</td>
+            <td id="zone_XSK22"></td>
+        </tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Function to set live data received through socket.io response
+        socket_live_data.on('live_data', function (msg) {
+        var obj_data = $.parseJSON(msg);
+
+        document.getElementById("zone_SK11").innerHTML = obj_data['SK11'];
+        document.getElementById("zone_SK12").innerHTML = obj_data['SK12'];
+        document.getElementById("zone_SK21").innerHTML = obj_data['SK21'];
+        document.getElementById("zone_SK22").innerHTML = obj_data['SK22'];
+        document.getElementById("zone_POR1").innerHTML = obj_data['POR1'];
+        document.getElementById("zone_POR2").innerHTML = obj_data['POR2'];
+        document.getElementById("zone_TR1").innerHTML = obj_data['TR1'];
+        document.getElementById("zone_TR2").innerHTML = obj_data['TR2'];
+        document.getElementById("zone_XSK11").innerHTML = obj_data['EXSK11'];
+        document.getElementById("zone_XSK12").innerHTML = obj_data['EXSK12'];
+        document.getElementById("zone_XSK21").innerHTML = obj_data['EXSK21'];
+        document.getElementById("zone_XSK22").innerHTML = obj_data['EXSK22'];
+    });
+</script>
+</html>
